@@ -1,3 +1,28 @@
 import csv
 import os
 
+# create class for file handling
+class FileHandler:
+
+    def save_contacts_to_file(filename, contacts):
+     # Get the directory path 
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Combine the script directory path with the filename to get the full file path
+        full_path = os.path.join(script_dir, filename)
+        try:
+            #Open the file at the full path for writing in text mode and create CSV writer object
+            with open(full_path, 'w', newline= '') as file:
+                writer = csv.writer(file)
+                # write thhe header row with column names
+                writer.writerow(['First Name', 'Last Name', 'Address', 'Contact Number', 'Temperature', 'Symptoms',
+                                 'Contact with COVID-19 positive person', 'Traveled to high-risk areas',
+                                 'Taken COVID-19 test recently'])
+                # iterate over each contact and write its data as row in the CSV file
+                for contact in contacts:
+                    writer.writerow([contact['First Name'], contact['Last Name'], contact['Address'],
+                                     contact['Contact Number'], contact['Temperature'],
+                                     contact['COVID-19 Questions']['Symptoms'],
+                                     contact['COVID-19 Questions']['Contact with COVID-19 positive person'],
+                                     contact['COVID-19 Questions']['Traveled to high-risk areas'],
+                                     contact['COVID-19 Questions']['Taken COVID-19 test recently']]) 
+                                       
