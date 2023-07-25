@@ -16,6 +16,13 @@ class HealthDeclarationForm:
         # append the new contact info to the contact list
         self.contacts.append(contact_info)
 
+    def save_contacts_to_file(self, filename):
+        FileHandler.save_contacts_to_file(filename, self.contacts)
+
+    def load_contacts_from_file(self, filename):
+        self.contacts = FileHandler.load_contacts_from_file(filename)
+        
+
         
 
 
