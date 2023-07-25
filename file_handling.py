@@ -25,4 +25,33 @@ class FileHandler:
                                      contact['COVID-19 Questions']['Contact with COVID-19 positive person'],
                                      contact['COVID-19 Questions']['Traveled to high-risk areas'],
                                      contact['COVID-19 Questions']['Taken COVID-19 test recently']]) 
-                                       
+        except Exception as e:
+            # if an excepetion occurs during the file writing, raise a ValueError with the error message
+            raise ValueError(f"Failed to save contacts: {e}")
+
+    def load_contacts_from_file(filename):
+        # create an empty list to store the loaded contacts
+        contacts = []
+        # open the file in read mode and create a CSV reader
+        with open(filename, 'r') as file:
+            reader = csv.DictReader(file)
+            #iterate over each row in the CSV file
+            for row in reader:
+            # contact information from the row and conver relevant values to boolean
+                contact_info = {
+                    'First Name': row['First Name'],
+                    'Last Name': row['Last Name'],
+                    'Address': row['Address'],
+                    'Contact Number': row['Contact Number'],
+                    'Temperature': row['Temperature'],
+                    'COVID-19 Questions': {
+                        'Symptoms': row['Symptoms'] == '1',
+                        'Contact with COVID-19 positive person': row['Contact with COVID-19 positive person'] == '1',
+                        'Traveled to high-risk areas': row['Traveled to high-risk areas'] == '1',
+                        'Taken COVID-19 test recently': row['Taken COVID-19 test recently'] == '1'
+                    }
+                }
+                contacts.append(contact_info)
+        return contacts         
+
+
