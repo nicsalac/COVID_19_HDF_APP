@@ -36,5 +36,38 @@ class HealthDeclarationApp:
 
         btn_exit = tk.Button(menu_frame, text="Exit", command=self.on_exit)
         btn_exit.pack(pady=5)
+# method called when the application is exited
+    def on_exit(self):
+        #save the contacts data to the health_declaration_data.csv file
+        self.health_declaration.save_contacts_to_file("health_declaration_data.csv")
+        # main GUI window to exit the application
+        self.root.destroy()
+
+    def open_add_contact_dialog(self):
+        # method to open the "Add Contact" dialog window
+        if len(self.health_declaration.contacts) >= 1000:
+            # error message if the contact lists is full
+            messagebox.showerror("Error", "HDF Book is full.")
+            return
+
+        dialog = AddContactDialog(self.root, self.health_declaration)
+        self.root.wait_window(dialog.top)
+
+    def show_saved_contacts(self):
+        #method to display the saved contacts in a new window
+        saved_contacts = self.health_declaration.contacts
+        if not saved_contacts:
+            # If there are no contacts saved, show a message
+            messagebox.showinfo("Saved Contacts", "No contacts found.")
+            return 
+        # create a new window to display the saved contacts
+        saved_contacts_window = tk.Toplevel(self.root)
+        saved_contacts_window.title("Saved Contacts")
         
+        text_area = scrolledtext.ScrolledText(saved_contacts_window, width=80, height=20)
+        text_area.pack()
+
+
+
+
 
