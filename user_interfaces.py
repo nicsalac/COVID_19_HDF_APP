@@ -66,7 +66,25 @@ class HealthDeclarationApp:
         
         text_area = scrolledtext.ScrolledText(saved_contacts_window, width=80, height=20)
         text_area.pack()
+        
+         # the saved contacts by iterating through the contacts list
+        for contact in saved_contacts:
+            # Insert contact details into the text area
+            text_area.insert(tk.END, f"First Name: {contact['First Name']}\n")
+            text_area.insert(tk.END, f"Last Name: {contact['Last Name']}\n")
+            text_area.insert(tk.END, f"Address: {contact['Address']}\n")
+            text_area.insert(tk.END, f"Contact Number: {contact['Contact Number']}\n")
+            text_area.insert(tk.END, f"Temperature: {contact['Temperature']}\n")
+            text_area.insert(tk.END, "COVID-19 Questions:\n")
+            text_area.insert(tk.END, f"  Symptoms: {'Yes' if contact['COVID-19 Questions']['Symptoms'] else 'No'}\n")
+            text_area.insert(tk.END, f"  Contact with COVID-19 positive person: {'Yes' if contact['COVID-19 Questions']['Contact with COVID-19 positive person'] else 'No'}\n")
+            text_area.insert(tk.END, f"  Traveled to high-risk areas: {'Yes' if contact['COVID-19 Questions']['Traveled to high-risk areas'] else 'No'}\n")
+            text_area.insert(tk.END, f"  Taken COVID-19 test recently: {'Yes' if contact['COVID-19 Questions']['Taken COVID-19 test recently'] else 'No'}\n")
+            text_area.insert(tk.END, "\n")
 
+        # disable the text area to prevent editing
+        text_area.configure(state=tk.DISABLED)
+        
 
 
 
