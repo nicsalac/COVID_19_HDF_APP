@@ -106,6 +106,18 @@ class BaseDialog:
     def show_message(self,message):
         messagebox.showinfo(self.dialog_title, message)
 
+class AddContactDialog(BaseDialog):
+    def __init__(self, parent, health_declaration):
+        self.dialog_title = "Add Contact"
+        super().__init__(parent, health_declaration)
+
+    def create_body(self, frame):
+        lbl_first_name = tk.Label(frame, text="First Name:")
+        lbl_first_name.grid(row=0, column=1, pady=5)
+        
+
+
+
 
 
 
