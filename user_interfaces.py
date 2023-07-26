@@ -124,6 +124,25 @@ class AddContactDialog(BaseDialog):
         self.entry_last_name = tk.Entry(frame)
         self.entry_last_name.grid(row=1, column=1, pady=5)
 
+        lbl_address = tk.Label(frame, text="Address:")
+        lbl_address.grid(row=2, column=0, sticky=tk.E)
+
+        self.entry_address = tk.Entry(frame)
+        self.entry_address.grid(row=2, column=1, pady=5)
+
+        lbl_contact_number = tk.Label(frame, text="Contact Number:")
+        lbl_contact_number.grid(row=3, column=0, sticky=tk.E)
+
+        self.entry_contact_number = tk.Entry(frame)
+        self.entry_contact_number.grid(row=3, column=1, pady=5)
+
+        lbl_temperature = tk.Label(frame, text="Temperature:")
+        lbl_temperature.grid(row=4, column=0, sticky=tk.E)
+
+        self.entry_temperature = tk.Entry(frame)
+        self.entry_temperature.grid(row=4, column=1, pady=5)
+        
+
 
 
 
