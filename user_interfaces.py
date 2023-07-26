@@ -142,6 +142,14 @@ class AddContactDialog(BaseDialog):
         self.entry_temperature = tk.Entry(frame)
         self.entry_temperature.grid(row=4, column=1, pady=5)
         
+        # Additional COVID-19 health-related questions
+        lbl_questions = tk.Label(frame, text="COVID-19 Health Questions:", font=("Helvetica", 12))
+        lbl_questions.grid(row=5, columnspan=2, pady=10)
+
+        self.question_1_var = tk.IntVar()
+        self.question_1_var.set(0)
+        self.chk_question_1 = tk.Checkbutton(frame, text="Have you experienced any COVID-19 symptoms?", variable=self.question_1_var)
+        self.chk_question_1.grid(row=6, columnspan=2, sticky=tk.W)
 
 
 
