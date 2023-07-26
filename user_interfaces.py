@@ -186,7 +186,15 @@ class AddContactDialog(BaseDialog):
             self.show_message("First Name and Last Name should only contain alphabetic characters.")
             return
 
+        if not contact_number.isdigit() or len(contact_number) != 11:
+            self.show_message("Contact Number should be a numeric value with 11 digits.")
+            return
 
+        try:
+            temperature = float(temperature)
+        except ValueError:
+            self.show_message("Temperature should be a numeric value.")
+            return
 
 
 
