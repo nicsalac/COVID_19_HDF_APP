@@ -196,6 +196,15 @@ class AddContactDialog(BaseDialog):
             self.show_message("Temperature should be a numeric value.")
             return
 
+        # Gather the selected COVID-19 health-related questions
+        questions = {
+            'Symptoms': bool(self.question_1_var.get()),
+            'Contact with COVID-19 positive person': bool(self.question_2_var.get()),
+            'Traveled to high-risk areas': bool(self.question_3_var.get()),
+            'Taken COVID-19 test recently': bool(self.question_4_var.get())
+        }
+
+
 
 
 
