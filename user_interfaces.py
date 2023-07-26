@@ -181,6 +181,11 @@ class AddContactDialog(BaseDialog):
             self.show_message("All fields are required.")
             return
 
+        if any(char.isdigit() or not char.isalpha() for char in first_name) or \
+                any(char.isdigit() or not char.isalpha() for char in last_name):
+            self.show_message("First Name and Last Name should only contain alphabetic characters.")
+            return
+
 
 
 
