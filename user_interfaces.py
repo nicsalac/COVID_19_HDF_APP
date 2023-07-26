@@ -116,7 +116,7 @@ class AddContactDialog(BaseDialog):
         lbl_first_name.grid(row=0, column=0, pady=5)
 
         self.entry_first_name = tk.Entry(frame)
-        self.entry_first_name.grid(row=1, column=0, sticky=tk.E)
+        self.entry_first_name.grid(row=0, column=1, sticky=tk.E)
 
         lbl_last_name = tk.Label(frame, text="Last Name:")
         lbl_last_name.grid(row=1, column=0, sticky=tk.E)
@@ -217,7 +217,7 @@ class AddContactDialog(BaseDialog):
         self.health_declaration.add_contact(contact_info)
         self.show_message("Your COVID 19-HDF saved sucessfully")
         self.top.destroy()
-        
+
         
 
 
