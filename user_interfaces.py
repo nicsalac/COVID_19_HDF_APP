@@ -176,7 +176,10 @@ class AddContactDialog(BaseDialog):
         address = self.entry_address.get().strip()
         contact_number = self.entry_contact_number.get().strip()
         temperature = self.entry_temperature.get().strip()
-
+        
+        if not first_name or not last_name or not address or not contact_number or not temperature:
+            self.show_message("All fields are required.")
+            return
 
 
 
