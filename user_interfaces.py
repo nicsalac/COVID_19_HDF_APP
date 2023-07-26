@@ -84,7 +84,29 @@ class HealthDeclarationApp:
 
         # disable the text area to prevent editing
         text_area.configure(state=tk.DISABLED)
-        
+
+class BaseDialog:
+    def __init__(self,parent, health_declaration):
+        self.top = tk.Toplevel(parent)
+        self.health_declaration = health_declaration
+        self.create_gui()
+
+    def create_gui(self):
+        self.top.grab_set()
+        self.top.title(self.dialog_title)
+
+        main_frame = tk.Frame(self.top, bg= "#fde7ea")
+        main_frame.pack(pady=10, padx=10)
+
+        self.create_body(main_frame)
+
+        btn_frame = tk.Frame(self.top)
+        btn_frame.pack(pady=10)
+
+    def show_message(self,message):
+        messagebox.showinfo(self.dialog_title, message)
+
+
 
 
 
