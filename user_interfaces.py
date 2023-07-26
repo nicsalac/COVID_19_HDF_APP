@@ -170,6 +170,13 @@ class AddContactDialog(BaseDialog):
         btn_save = tk.Button(frame, text="Save", command=self.save_contact)
         btn_save.grid(row=10, column=1, pady=5)
 
+    def save_contact(self):
+        first_name = self.entry_first_name.get().strip()
+        last_name = self.entry_last_name.get().strip()
+        address = self.entry_address.get().strip()
+        contact_number = self.entry_contact_number.get().strip()
+        temperature = self.entry_temperature.get().strip()
+
 
 
 
