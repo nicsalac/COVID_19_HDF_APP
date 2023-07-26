@@ -204,6 +204,15 @@ class AddContactDialog(BaseDialog):
             'Taken COVID-19 test recently': bool(self.question_4_var.get())
         }
 
+        # Add the selected questions to the contact information
+        contact_info = {
+            'First Name': first_name,
+            'Last Name': last_name,
+            'Address': address,
+            'Contact Number': contact_number,
+            'Temperature': temperature,
+            'COVID-19 Questions': questions
+        }
 
 
 
