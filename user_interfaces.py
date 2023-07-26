@@ -165,7 +165,10 @@ class AddContactDialog(BaseDialog):
         self.question_4_var.set(0)
         self.chk_question_4 = tk.Checkbutton(frame, text="Have you taken a COVID-19 test recently?", variable=self.question_4_var)
         self.chk_question_4.grid(row=9, columnspan=2, sticky=tk.W)
-
+        
+        
+        btn_save = tk.Button(frame, text="Save", command=self.save_contact)
+        btn_save.grid(row=10, column=1, pady=5)
 
 
 
