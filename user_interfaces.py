@@ -113,8 +113,19 @@ class AddContactDialog(BaseDialog):
 
     def create_body(self, frame):
         lbl_first_name = tk.Label(frame, text="First Name:")
-        lbl_first_name.grid(row=0, column=1, pady=5)
-        
+        lbl_first_name.grid(row=0, column=0, pady=5)
+
+        self.entry_first_name = tk.Entry(frame)
+        self.entry_first_name.grid(row=1, column=0, sticky=tk.E)
+
+        lbl_last_name = tk.Label(frame, text="Last Name:")
+        lbl_last_name.grid(row=1, column=0, sticky=tk.E)
+
+        self.entry_last_name = tk.Entry(frame)
+        self.entry_last_name.grid(row=1, column=1, pady=5)
+
+
+
 
 
 
