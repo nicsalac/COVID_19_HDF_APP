@@ -151,6 +151,21 @@ class AddContactDialog(BaseDialog):
         self.chk_question_1 = tk.Checkbutton(frame, text="Have you experienced any COVID-19 symptoms?", variable=self.question_1_var)
         self.chk_question_1.grid(row=6, columnspan=2, sticky=tk.W)
 
+        self.question_2_var = tk.IntVar()
+        self.question_2_var.set(0)
+        self.chk_question_2 = tk.Checkbutton(frame, text="Have you been in contact with a COVID-19 positive person?", variable=self.question_2_var)
+        self.chk_question_2.grid(row=7, columnspan=2, sticky=tk.W)
+
+        self.question_3_var = tk.IntVar()
+        self.question_3_var.set(0)
+        self.chk_question_3 = tk.Checkbutton(frame, text="Have you traveled to any high-risk areas?", variable=self.question_3_var)
+        self.chk_question_3.grid(row=8, columnspan=2, sticky=tk.W)
+
+        self.question_4_var = tk.IntVar()
+        self.question_4_var.set(0)
+        self.chk_question_4 = tk.Checkbutton(frame, text="Have you taken a COVID-19 test recently?", variable=self.question_4_var)
+        self.chk_question_4.grid(row=9, columnspan=2, sticky=tk.W)
+
 
 
 
