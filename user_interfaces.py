@@ -214,6 +214,12 @@ class AddContactDialog(BaseDialog):
             'COVID-19 Questions': questions
         }
 
+        self.health_declaration.add_contact(contact_info)
+        self.show_message("Your COVID 19-HDF saved sucessfully")
+        self.top.destroy()
+        
+        
+
 
 
 
